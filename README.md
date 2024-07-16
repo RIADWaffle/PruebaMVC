@@ -17,7 +17,7 @@ Para comenzar con el proyecto, sigue estos pasos:
 
    ```bash
    git clone https://github.com/RIADWaffle/PruebaMVC.git
-   cd PruebaMVC
+   cd PruebaMVC-main
 
 2. **Instalar dependencias**:
    ```bash
