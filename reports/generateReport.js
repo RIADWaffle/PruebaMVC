@@ -5,17 +5,26 @@ const path = require('path');
 
 ///////////////////////////////////////////
 // Funcion para generar el archivo Excel
-exports.generateExcelReport = (data, res) => {
+exports.generateExcelReport = (data, startTime, endTime, res) => {
   const workbook = new ExcelJS.Workbook();
   const worksheet = workbook.addWorksheet('Report');
 
+  // Unir celdas y añadir el rango de fechas en la primera fila
+  worksheet.mergeCells('A1:D1');
+  worksheet.getCell('A1').value = `Inicio: ${startTime} - Final: ${endTime}`;
+  worksheet.getCell('A1').font = { bold: true };
+  worksheet.getCell('A1').alignment = { horizontal: 'center' };
+  
+
   // Estructura de columnas
   worksheet.columns = [
-    { header: 'Núm. placa', key: 'plateNumber', width: 15 },
-    { header: 'Tiempo estacionado (min.)', key: 'parkingTime', width: 20 },
-    { header: 'Tipo', key: 'type', width: 15 },
-    { header: 'Cantidad a pagar', key: 'amount', width: 15 }
+    { header: 'Núm. placa', key: 'plateNumber', width: 20 },
+    { header: 'Tiempo estacionado (min.)', key: 'parkingTime', width: 30 },
+    { header: 'Tipo', key: 'type', width: 20 },
+    { header: 'Cantidad a pagar', key: 'amount', width: 20 }
   ];
+
+  worksheet.addRow(worksheet.columns.map(col => col.header));
 
   // Guardado de datos en archivo
   data.forEach(item => {
@@ -40,7 +49,7 @@ exports.generatePdfReport = (data, startTime, endTime, res) => {
   doc.pipe(fs.createWriteStream(filePath));
 
   doc.fontSize(14).text(`inicio: ${startTime}`);
-  doc.fontSize(14).text(`Fin:   ${endTime}`);
+  doc.fontSize(14).text(`Fin:    ${endTime}`);
   doc.moveDown();
 
   data.forEach(item => {

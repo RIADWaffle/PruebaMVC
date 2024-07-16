@@ -49,7 +49,7 @@ exports.generateReport = async (req, res) => {
 
   // Elegir formato de archivo
   if (format === 'excel') {
-    generateExcelReport(reportData, res);
+    generateExcelReport(reportData, start, end, res);
   } else if (format === 'pdf') {
     generatePdfReport(reportData, start, end, res);
   } else {

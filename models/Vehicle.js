@@ -11,7 +11,7 @@ const vehicleSchema = new mongoose.Schema({
 // Funcion que calcula los minutos que duraron en el parking
 vehicleSchema.methods.getParkingDuration = function () {
   if (this.entryTime && this.exitTime) {
-    return (this.exitTime - this.entryTime) / 60000; // duración en minutos
+    return ((this.exitTime - this.entryTime) / 60000).toFixed(2); // duración en minutos con max 2 decimales
   }
   return 0;
 };
