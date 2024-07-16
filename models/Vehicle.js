@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Modelo para los vehiculos de la BD
 const vehicleSchema = new mongoose.Schema({
   plateNumber: { type: String, required: true },
   type: { type: String, required: true },
@@ -7,6 +8,7 @@ const vehicleSchema = new mongoose.Schema({
   exitTime: { type: Date },
 });
 
+// Funcion que calcula los minutos que duraron en el parking
 vehicleSchema.methods.getParkingDuration = function () {
   if (this.entryTime && this.exitTime) {
     return (this.exitTime - this.entryTime) / 60000; // duración en minutos
@@ -14,6 +16,8 @@ vehicleSchema.methods.getParkingDuration = function () {
   return 0;
 };
 
+
+// Funcion que calcula el precio acorde al tiempo y tipo
 vehicleSchema.methods.getParkingFee = function () {
   const duration = this.getParkingDuration();
   switch (this.type) {
@@ -29,5 +33,4 @@ vehicleSchema.methods.getParkingFee = function () {
 };
 
 const Vehicle = mongoose.model('Vehicle', vehicleSchema);
-
 module.exports = Vehicle;

@@ -3,11 +3,13 @@ const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const path = require('path');
 
-// Function to generate Excel report
+///////////////////////////////////////////
+// Funcion para generar el archivo Excel
 exports.generateExcelReport = (data, res) => {
   const workbook = new ExcelJS.Workbook();
   const worksheet = workbook.addWorksheet('Report');
 
+  // Estructura de columnas
   worksheet.columns = [
     { header: 'Núm. placa', key: 'plateNumber', width: 15 },
     { header: 'Tiempo estacionado (min.)', key: 'parkingTime', width: 20 },
@@ -15,10 +17,12 @@ exports.generateExcelReport = (data, res) => {
     { header: 'Cantidad a pagar', key: 'amount', width: 15 }
   ];
 
+  // Guardado de datos en archivo
   data.forEach(item => {
     worksheet.addRow(item);
   });
 
+  // Guardar localmente el archivo generado
   const filePath = path.join(__dirname, 'report.xlsx');
   workbook.xlsx.writeFile(filePath).then(() => {
     res.download(filePath, 'report.xlsx', (err) => {
@@ -28,7 +32,8 @@ exports.generateExcelReport = (data, res) => {
   });
 };
 
-// Function to generate PDF report
+///////////////////////////////////////////
+// Funcion para generar el archivo PDF
 exports.generatePdfReport = (data, res) => {
   const doc = new PDFDocument();
   const filePath = path.join(__dirname, 'report.pdf');
