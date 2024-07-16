@@ -22,7 +22,7 @@ exports.registerExit = async (req, res) => {
     await vehicle.save();
     res.render('exit', { vehicle });
   } else {
-    res.send('Vehicle not found');
+    res.send('Vehiculo no encontrado');
   }
 };
 
@@ -51,7 +51,7 @@ exports.generateReport = async (req, res) => {
   if (format === 'excel') {
     generateExcelReport(reportData, res);
   } else if (format === 'pdf') {
-    generatePdfReport(reportData, res);
+    generatePdfReport(reportData, start, end, res);
   } else {
     res.status(400).send('Invalid format');
   }

@@ -1,3 +1,4 @@
+// Imports
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -8,7 +9,7 @@ mongoose.connect('mongodb://localhost/ParkingDB', { useNewUrlParser: true, useUn
   .then(() => console.log('Conectado a MongoDB...'))
   .catch(err => console.error('No se pudo conectar a MongoDB...', err));
 
-// Configuración de EJS
+// Configuración de EJS para front-end
 app.set('view engine', 'ejs');
 
 // Middleware
@@ -19,6 +20,7 @@ app.use(express.static('public'));
 const indexRoutes = require('./routes/index');
 app.use('/', indexRoutes);
 
+// Puerto de ejecucion
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Servidor en ejecución en el puerto ${port}`);

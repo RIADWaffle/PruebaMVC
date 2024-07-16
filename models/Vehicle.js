@@ -21,11 +21,11 @@ vehicleSchema.methods.getParkingDuration = function () {
 vehicleSchema.methods.getParkingFee = function () {
   const duration = this.getParkingDuration();
   switch (this.type) {
-    case 'official':
+    case 'oficial':
       return 0;
-    case 'resident':
+    case 'residente':
       return duration * 1;
-    case 'non-resident':
+    case 'no-residente':
       return duration * 3;
     default:
       return 0;

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vehicle Exit</title>
+  <title>Salida de vehiculo</title>
 </head>
 <body>
-  <h1>Vehicle Exit</h1>
-  <p>Vehicle with plate number <%= vehicle.plateNumber %> has exited.</p>
-  <p>Type: <%= vehicle.type %></p>
-  <p>Entry Time: <%= vehicle.entryTime %></p>
-  <p>Exit Time: <%= vehicle.exitTime %></p>
-  <p>Parking Duration: <%= vehicle.getParkingDuration() %> minutes</p>
-  <p>Amount to Pay: $<%= vehicle.getParkingFee() %></p>
-  <a href="/">Back to Home</a>
+  <h1>Salida de vehiculo</h1>
+  <p>El vehiculo con placa <%= vehicle.plateNumber %> a salido.</p>
+  <p>Tipo: <%= vehicle.type %></p>
+  <p>Hora de entrada: <%= vehicle.entryTime %></p>
+  <p>Hora de salida: <%= vehicle.exitTime %></p>
+  <p>Duracion en estacionamiento: <%= vehicle.getParkingDuration() %> minutes</p>
+  <p>Paga: $<%= vehicle.getParkingFee() %></p>
+  <a href="/">Volver al inicio</a>
 </body>
 </html>

@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Parking System</title>
+  <title>Sistema de estacionamiento</title>
 </head>
 <body>
-  <h1>Parking System</h1>
+  <h1>Sistema de estacionamiento</h1>
   <form action="/entry" method="POST">
-    <input type="text" name="plateNumber" placeholder="Plate Number" required>
+    <input type="text" name="plateNumber" placeholder="Numero de placa" required>
     <select name="type" required>
-      <option value="official">Official</option>
-      <option value="resident">Resident</option>
-      <option value="non-resident">Non-Resident</option>
+      <option value="oficial">Oficial</option>
+      <option value="residente">Residente</option>
+      <option value="no-residente">No-Residente</option>
     </select>
-    <button type="submit">Register Entry</button>
+    <button type="submit">Registrar entrada</button>
   </form>
 
   <form action="/exit" method="POST">
-    <input type="text" name="plateNumber" placeholder="Plate Number" required>
-    <button type="submit">Register Exit</button>
+    <input type="text" name="plateNumber" placeholder="Numero de placa" required>
+    <button type="submit">Registrar salida</button>
   </form>
 
-  <h2>Generate Report</h2>
+  <h2>Generar un reporte</h2>
   <form action="/report" method="POST">
-    <label for="startDate">Start Date and Time:</label>
+    <label for="startDate">Fecha y hora de inicio:</label>
     <input type="datetime-local" id="startDate" name="startDate" required>
 
-    <label for="endDate">End Date and Time:</label>
+    <label for="endDate">Fecha y hora final:</label>
     <input type="datetime-local" id="endDate" name="endDate" required>
 
-    <label for="format">Format:</label>
+    <label for="format">Formato:</label>
     <select id="format" name="format" required>
       <option value="excel">Excel</option>
       <option value="pdf">PDF</option>
     </select>
 
-    <button type="submit">Generate Report</button>
+    <button type="submit">Generar Reporte</button>
   </form>
 </body>
 </html>
