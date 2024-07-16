@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Parking System</title>
+</head>
+<body>
+  <h1>Parking System</h1>
+  <form action="/entry" method="POST">
+    <input type="text" name="plateNumber" placeholder="Plate Number" required>
+    <select name="type" required>
+      <option value="official">Official</option>
+      <option value="resident">Resident</option>
+      <option value="non-resident">Non-Resident</option>
+    </select>
+    <button type="submit">Register Entry</button>
+  </form>
+
+  <form action="/exit" method="POST">
+    <input type="text" name="plateNumber" placeholder="Plate Number" required>
+    <button type="submit">Register Exit</button>
+  </form>
+
+  <h2>Generate Report</h2>
+  <form action="/report" method="POST">
+    <label for="startDate">Start Date and Time:</label>
+    <input type="datetime-local" id="startDate" name="startDate" required>
+
+    <label for="endDate">End Date and Time:</label>
+    <input type="datetime-local" id="endDate" name="endDate" required>
+
+    <label for="format">Format:</label>
+    <select id="format" name="format" required>
+      <option value="excel">Excel</option>
+      <option value="pdf">PDF</option>
+    </select>
+
+    <button type="submit">Generate Report</button>
+  </form>
+</body>
+</html>

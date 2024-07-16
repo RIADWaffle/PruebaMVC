@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vehicle Exit</title>
+</head>
+<body>
+  <h1>Vehicle Exit</h1>
+  <p>Vehicle with plate number <%= vehicle.plateNumber %> has exited.</p>
+  <p>Type: <%= vehicle.type %></p>
+  <p>Entry Time: <%= vehicle.entryTime %></p>
+  <p>Exit Time: <%= vehicle.exitTime %></p>
+  <p>Parking Duration: <%= vehicle.getParkingDuration() %> minutes</p>
+  <p>Amount to Pay: $<%= vehicle.getParkingFee() %></p>
+  <a href="/">Back to Home</a>
+</body>
+</html>
