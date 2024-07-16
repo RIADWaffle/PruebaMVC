@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Salida de vehiculo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salida de vehículo</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <h1>Salida de vehiculo</h1>
-  <p>El vehiculo con placa <%= vehicle.plateNumber %> a salido.</p>
-  <p>Tipo: <%= vehicle.type %></p>
-  <p>Hora de entrada: <%= vehicle.entryTime %></p>
-  <p>Hora de salida: <%= vehicle.exitTime %></p>
-  <p>Duracion en estacionamiento: <%= vehicle.getParkingDuration() %> minutes</p>
-  <p>Paga: $<%= vehicle.getParkingFee() %></p>
-  <a href="/">Volver al inicio</a>
+  <div class="card">
+    <h1>Salida de vehículo</h1>
+    <p>El vehículo con placa <%= vehicle.plateNumber %> ha salido.</p>
+    <p>Tipo: <%= vehicle.type %></p>
+    <p>Hora de entrada: <%= new Date(vehicle.entryTime).toLocaleString() %></p>
+    <p>Hora de salida: <%= new Date(vehicle.exitTime).toLocaleString() %></p>
+    <p>Duración en estacionamiento: <%= vehicle.getParkingDuration() %> minutos</p>
+    <p>Paga: $<%= vehicle.getParkingFee() %></p>
+    <a href="/">Volver al inicio</a>
+  </div>
 </body>
 </html>

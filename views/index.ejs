@@ -1,40 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema de estacionamiento</title>
+  <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
   <h1>Sistema de estacionamiento</h1>
-  <form action="/entry" method="POST">
-    <input type="text" name="plateNumber" placeholder="Numero de placa" required>
-    <select name="type" required>
-      <option value="oficial">Oficial</option>
-      <option value="residente">Residente</option>
-      <option value="no-residente">No-Residente</option>
-    </select>
-    <button type="submit">Registrar entrada</button>
-  </form>
+  <div class="container">
+    <div class="card">
+      <h2>Registrar Entrada</h2>
+      <form action="/entry" method="POST">
+        <input type="text" name="plateNumber" placeholder="Número de placa" required>
+        <select name="type" required>
+          <option value="oficial">Oficial</option>
+          <option value="residente">Residente</option>
+          <option value="no-residente">No-Residente</option>
+        </select>
+        <button type="submit">Registrar entrada</button>
+      </form>
+    </div>
 
-  <form action="/exit" method="POST">
-    <input type="text" name="plateNumber" placeholder="Numero de placa" required>
-    <button type="submit">Registrar salida</button>
-  </form>
+    <div class="card">
+      <h2>Registrar Salida</h2>
+      <form action="/exit" method="POST">
+        <input type="text" name="plateNumber" placeholder="Número de placa" required>
+        <button type="submit">Registrar salida</button>
+      </form>
+    </div>
 
-  <h2>Generar un reporte</h2>
-  <form action="/report" method="POST">
-    <label for="startDate">Fecha y hora de inicio:</label>
-    <input type="datetime-local" id="startDate" name="startDate" required>
+    <div class="card">
+      <h2>Generar Reporte</h2>
+      <form action="/report" method="POST">
+        <label for="startDate">Fecha y hora de inicio:</label>
+        <input type="datetime-local" id="startDate" name="startDate" required>
 
-    <label for="endDate">Fecha y hora final:</label>
-    <input type="datetime-local" id="endDate" name="endDate" required>
+        <label for="endDate">Fecha y hora final:</label>
+        <input type="datetime-local" id="endDate" name="endDate" required>
 
-    <label for="format">Formato:</label>
-    <select id="format" name="format" required>
-      <option value="excel">Excel</option>
-      <option value="pdf">PDF</option>
-    </select>
+        <label for="format">Formato:</label>
+        <select id="format" name="format" required>
+          <option value="excel">Excel</option>
+          <option value="pdf">PDF</option>
+        </select>
 
-    <button type="submit">Generar Reporte</button>
-  </form>
+        <button type="submit">Generar Reporte</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>

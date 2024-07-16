@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Entrada de vehiculo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrada de vehículo</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="card">
-  <h1>Entrada de vehiculo</h1>
-  <p>El vehiculo con la placa: <%= vehicle.plateNumber %> ha entrado.</p>
-  <p>Tipo: <%= vehicle.type %></p>
-  <p>Hora de entrada: <%= vehicle.entryTime %></p>
-  <a href="/">Volver al inicio</a>
+    <h1>Entrada de vehículo</h1>
+    <p>El vehículo con la placa: <%= vehicle.plateNumber %>.</p>
+    <p>Tipo: <%= vehicle.type %></p>
+    <p>Hora de entrada: <%= new Date(vehicle.entryTime).toLocaleString() %></p>
+    <a href="/">Volver al inicio</a>
   </div>
 </body>
 </html>
